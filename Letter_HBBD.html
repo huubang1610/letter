@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lá thư có thể viết văn bản</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative; /* Đặt vị trí tương đối cho body */
+        }
+
+        .envelope {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background-color: #f7d794;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            cursor: pointer; /* Thêm con trỏ chuột để cho thấy đây là phần có thể nhấp */
+            transition: opacity 0.5s ease; /* Thêm hiệu ứng mờ */
+        }
+
+        .triangle {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+
+        /* Các mảnh tam giác */
+        .triangle.top-left {
+            top: 0;
+            left: 0;
+            border-width: 0 150px 100px 0;
+            border-color: transparent #d68d42 transparent transparent;
+        }
+
+        .triangle.top-right {
+            top: 0;
+            right: 0;
+            border-width: 0 0 100px 150px;
+            border-color: transparent transparent transparent #d68d42;
+        }
+
+        .triangle.bottom-left {
+            bottom: 0;
+            left: 0;
+            border-width: 60px 100px 0 0;
+            border-color: #f7d794 transparent transparent transparent;
+            border-top: 1px solid #d68d42;
+        }
+
+        .triangle.bottom-right {
+            bottom: 0;
+            right: 0;
+            border-width: 60px 0 0 100px;
+            border-color: #f7d794 transparent transparent transparent;
+            border-top: 1px solid #d68d42;
+        }
+
+        .heart {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: rgb(235, 59, 112);
+        }
+
+        .from {
+            position: absolute;
+            bottom: 5px;
+            right: 10px;
+            font-size: 12px;
+            color: #000000;
+        }
+
+        .br {
+            position: absolute; /* Đặt vị trí tuyệt đối để nằm bên trong envelope */
+            top: 0; /* Căn ở phía trên cùng */
+            left: 0; /* Căn ở phía bên trái */
+            width: 100%; /* Đảm bảo chiều rộng giống như lá thư */
+            height: 100%; /* Đảm bảo chiều cao giống như lá thư */
+            background-color: #dfa67ed3; /* Màu nâu của phần br */
+            opacity: 0; /* Bắt đầu với độ mờ là 0 */
+            transition: opacity 0.5s ease; /* Hiệu ứng mờ */
+            display: flex; /* Dùng flexbox để căn giữa textarea */
+            justify-content: center; /* Căn giữa theo chiều ngang */
+            align-items: center; /* Căn giữa theo chiều dọc */
+            pointer-events: none; /* Vô hiệu hóa sự kiện chuột khi không mở */
+        }
+
+        .content {
+            width: 80%; /* Chiều rộng của nội dung */
+            height: 80%; /* Chiều cao của nội dung */
+            box-sizing: border-box;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100%;
+            border: 1px solid #d68d42;
+            border-radius: 5px;
+            padding: 10px;
+            box-sizing: border-box;
+            resize: none;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="envelope" id="envelope">
+        <!-- Các mảnh tam giác -->
+        <div class="triangle top-left"></div>
+        <div class="triangle top-right"></div>
+        <div class="triangle bottom-left"></div>
+        <div class="triangle bottom-right"></div>
+
+        <!-- Biểu tượng trái tim ở giữa lá thư -->
+        <div class="heart">❤</div>
+        
+        <!-- Phần br chứa nội dung -->
+        <div class="br" id="br">
+            <div class="content">
+                <textarea placeholder="Viết văn bản của bạn ở đây..."></textarea>
+            </div>
+        </div>
+
+        <!-- Nội dung trong thư -->
+        <div class="from">To: My friends</div>
+    </div>
+
+    <script>
+        const envelope = document.getElementById('envelope');
+        const br = document.getElementById('br');
+
+        envelope.addEventListener('click', function() {
+            br.style.opacity = 1; // Hiện phần br
+            br.style.pointerEvents = 'auto'; // Bật sự kiện chuột cho br
+        });
+    </script>
+</body>
+</html>
