@@ -35,7 +35,6 @@
             border-style: solid;
         }
 
-        /* Các mảnh tam giác */
         .triangle.top-left {
             top: 0;
             left: 0;
@@ -84,13 +83,13 @@
         }
 
         .br {
-            background-image: url('image.jpg'); /* Đường dẫn tới hình ảnh của bạn */
+            background-image: url('image.jpg');
             background-size: cover;
             background-position: center;
-            width: 90vw; /* Sử dụng 90% chiều rộng của màn hình */
-            height: 90vh; /* Sử dụng 90% chiều cao của màn hình */
-            max-width: 250px; /* Giới hạn chiều rộng tối đa */
-            max-height: 450px; /* Giới hạn chiều cao tối đa */
+            width: 90vw; 
+            height: 90vh; 
+            max-width: 250px; 
+            max-height: 450px;
             display: flex;
             justify-content: center;
             text-align: center;
@@ -102,7 +101,7 @@
         .content {
             width: 100%;
             height: 60%;
-            background-color: rgba(255, 255, 255, 0.6); /* Lớp phủ mờ */
+            background-color: rgba(255, 255, 255, 0.671);
             border-radius: 15px;
             display: flex;
             font-size: 18px;
@@ -110,42 +109,33 @@
             color: #333;
             padding: 20px;
             box-sizing: border-box;
-            margin-top: 40px; /* Khoảng cách từ viền trên */
-            margin-right: 10px; /* Khoảng cách từ viền trên */
+            margin-top: 40px; 
+            margin-right: 10px; 
         }
     </style>
 </head>
 <body>
     <div class="envelope" id="envelope">
-        <!-- Các mảnh tam giác -->
         <div class="triangle top-left"></div>
         <div class="triangle top-right"></div>
         <div class="triangle bottom-left"></div>
         <div class="triangle bottom-right"></div>
-
-        <!-- Biểu tượng trái tim ở giữa lá thư -->
         <div class="heart">❤</div>
-        
-        <!-- Phần br chứa nội dung -->
         <div class="br" id="br">
             <div class="content">
                 <p>Chúc mừng sinh nhật! Chúc bạn một ngày tràn ngập niềm vui, sức khỏe và hạnh phúc.</p>
             </div>
         </div>
-
-        <!-- Nội dung trong thư -->
         <div class="from">To: My friends</div>
     </div>
 
     <script>
         const envelope = document.getElementById('envelope');
         const br = document.getElementById('br');
-
         envelope.addEventListener('click', function() {
-            br.style.opacity = 1; // Hiện phần br
-            br.style.pointerEvents = 'auto'; // Bật sự kiện chuột cho br
-
-            envelope.style.width = "280px";  // Đặt width với đơn vị là pixel
+            br.style.opacity = 1; 
+            br.style.pointerEvents = 'auto'; 
+            envelope.style.width = "280px";
             envelope.style.height = "450px";
         });
     </script>
