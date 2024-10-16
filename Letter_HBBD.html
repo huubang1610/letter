@@ -88,11 +88,10 @@
             background-position: center;
             width: 90vw; 
             height: 90vh; 
-            max-width: 250px; 
-            max-height: 450px;
+            max-width: 300px; 
+            max-height: 500px;
             display: flex;
             justify-content: center;
-            text-align: center;
             position: relative;
             padding: 20px;
             opacity: 0;
@@ -104,13 +103,44 @@
             background-color: rgba(255, 255, 255, 0.671);
             border-radius: 15px;
             display: flex;
-            font-size: 18px;
+            font-size: 14px;
             font-family: 'Arial', sans-serif;
             color: #333;
             padding: 20px;
             box-sizing: border-box;
             margin-top: 40px; 
             margin-right: 10px; 
+            display: block;
+        }
+
+        .location{
+            font-size: 15px; 
+            color: #333; 
+        }
+
+        .map-link {
+            font-size: 15px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .map-link img {
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .map-link img:hover {
+            transform: scale(1.1); 
+        }
+
+        .clock {
+            display: block;
+            font-size: 15px;
+            color: #333; 
         }
     </style>
 </head>
@@ -123,20 +153,40 @@
         <div class="heart">❤</div>
         <div class="br" id="br">
             <div class="content">
-                <p>Chúc mừng sinh nhật! Chúc bạn một ngày tràn ngập niềm vui, sức khỏe và hạnh phúc.</p>
+                <p>Chào các bạn thân mến!</br>
+                    Mình rất vui mừng thông báo rằng mình sẽ tổ buổi gặp mặt nhỏ kỷ niệm 24 năm ngày mẹ mình sinh ra mình. Hãy đến và cùng nhau để ngồi nói chuyện,  
+                    tiệc tùng và những khoảnh khắc vui vẻ nhé! Cảm ơn vì sự có mặt của mọi người ngày hôm đó.</br> Rất mong nhận được sự góp mặt của các bạn.</br> 
+                </br>
+                </br>Thân ái!.</p>
+                <div class="clock">
+                    <div class="location">
+                        <a href="https://www.google.com/maps/place/141+Nguy%E1%BB%85n+Huy+T%E1%BB%B1,+B%E1%BA%AFc+H%C3%A0,+H%C3%A0+T%C4%A9nh,+Vi%E1%BB%87t+Nam/@18.3470824,105.8986722,58m/data=!3m1!1e3!4m6!3m5!1s0x31384e6a7aa72a03:0xd56231f5fce4377!8m2!3d18.3470761!4d105.8988288!16s%2Fg%2F11gh_6tzck?entry=ttu&g_ep=EgoyMDI0MTAxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-link">
+                            Vị trí
+                            <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Vị trí Google Maps">
+                            <p style="padding-left: 20px;">⏰ 19:20 </p>
+                        </a>
+                    </div>
+                </div>
             </div>
+            <audio id="audio" src="path/to/your/music.mp3"></audio>
         </div>
-        <div class="from">To: My friends</div>
+        <div class="from", id="from">To: My friends</div>
     </div>
 
     <script>
         const envelope = document.getElementById('envelope');
         const br = document.getElementById('br');
+        const from = document.getElementById('from');
         envelope.addEventListener('click', function() {
-            br.style.opacity = 1; 
+            br.style.opacity = 1;
+            from.style.opacity = 0;
             br.style.pointerEvents = 'auto'; 
-            envelope.style.width = "280px";
-            envelope.style.height = "450px";
+            envelope.style.width = "330px";
+            envelope.style.height = "500px";
+
+            var audio = document.getElementById('audio');
+            audio.play();
+            console.log("Phát nhạc")
         });
     </script>
 </body>
